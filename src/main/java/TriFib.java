@@ -1,11 +1,12 @@
 public class TriFib {
     public static void main(String[] args)
     {
-        System.out.println("The missing number is "+complete(new int[] {-1,2,3,6,11,20}));
+        System.out.println("The missing number is "+complete(new int[] {-1,2,3,5}));
     }
     private static int complete(int[] numbers) {
 
         int indexOfMissingNumber= indexOf(numbers);
+        int missingDigit=-1;
         if(indexOfMissingNumber>=3)
         {
             int[] generatedFibonacci= generateFibonacci(numbers);
@@ -15,7 +16,7 @@ public class TriFib {
                     return -1;
                 }
             }
-            return generatedFibonacci[indexOfMissingNumber];
+            missingDigit=generatedFibonacci[indexOfMissingNumber];
         }
         else
         {
@@ -24,15 +25,15 @@ public class TriFib {
                 numbers[0]= numbers[3]-(numbers[2]+numbers[1]);
                 if(validateFibonacci(numbers))
                 {
-                    return numbers[0];
-                }
-                else
-                {
-                    return -1;
+                    missingDigit=numbers[0];
                 }
             }
         }
-        return 0;
+        if(missingDigit>0)
+        {
+            return missingDigit;
+        }
+        return -1;
     }
     private static int[] generateFibonacci(int[] numbers)
     {
