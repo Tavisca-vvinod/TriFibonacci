@@ -14,18 +14,27 @@ public class FibGeneratorValidator {
     }
     public static int[] generateFibonacci(int[] numbers)
     {
-        int[] generatedFibonacci=new int[numbers.length];
+        for(int i=3;i<numbers.length;i++)
+        {
+            numbers[i]=numbers[i-1]+numbers[i-2]+numbers[i-3];
+
+        }
+        return numbers;
+    }
+    public static int sumOfOtherTwoNumbers(int[] numbers, int i) {
+        int sum=0;
+        for(int j=0;j<=2;j++){
+            if(j==i){continue;}
+            sum=sum+numbers[j];
+        }
+        return sum;
+    }
+    public static int indexOf(int[] numbers)
+    {
         for(int i=0;i<numbers.length;i++)
         {
-            if(i<3)
-            {
-                generatedFibonacci[i]=numbers[i];
-            }
-            else
-            {
-                generatedFibonacci[i]=generatedFibonacci[i-1]+generatedFibonacci[i-2]+generatedFibonacci[i-3];
-            }
+            if(numbers[i]==-1) { return i; }
         }
-        return generatedFibonacci;
+        return 0;
     }
 }
