@@ -16,6 +16,7 @@ Constraints
 -	Exactly one element of A will be -1.
  
 Examples
+
  0)    	
  {1,2,3,-1}
 Returns: 6
